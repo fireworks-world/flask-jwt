@@ -13,7 +13,7 @@ def index():
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        check = UserRegistration.post('', form.data)
+        check = UserRegistration.post('',form.data)
         '''email = form.email.data
         name = form.fname.data
         phone = form.phone.data
@@ -45,7 +45,8 @@ def login():
     if form.validate_on_submit():
         check = UserLogin.post('', form.data)
         flash(check['message'])
-        return redirect(url_for('index'))
+        #return redirect(url_for('index'))
+        return render_template('dashboard.html', title='dashboard',user=check)
     else:
         flash('Data entered is not valid')
 

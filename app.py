@@ -36,3 +36,6 @@ api.add_resource(resources.UserLogoutRefresh, '/api/logout/refresh')
 api.add_resource(resources.TokenRefresh, '/api/token/refresh')
 api.add_resource(resources.AllUsers, '/api/users')
 api.add_resource(resources.SecretResource, '/api/secret')
+
+if __name__=='__main__':
+    app.run(debug=True)
