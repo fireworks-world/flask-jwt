@@ -1,10 +1,18 @@
 from app import db
 from passlib.hash import pbkdf2_sha256 as sha256
+
+
 class UserModel(db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
+    fname = db.Column(db.String(120), unique=True, nullable=False)
     username = db.Column(db.String(120), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    phone = db.Column(db.String(11), nullable=False)
+    city = db.Column(db.String(120), nullable=False)
+    state = db.Column(db.String(120), nullable=False)
+    country = db.Column(db.String(120), nullable=False)
     password = db.Column(db.String(120), nullable=False)
 
     def save_to_db(self):
